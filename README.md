@@ -25,7 +25,7 @@ The artifact contains two efficient, lock-free, concurrent data structure design
     * Counter -> ``multi-counter_2dd-window``
     * Deque -> ``deque-maged_2Dd-win``
 ## Other data structure implementations
-*Random selection: Under thei form of sematic relaxation, given operation randomly selects one or more sub-structures from which it further selects one sub-structure to operate following a given creteria.
+*Random selection: Under this form of semantic relaxation, a given operation randomly selects one or more sub-structures from which it further selects one sub-structure to operate following a given creteria.
     * Stack -> ``multi-stack_random-relaxed``
     * FIFO Queue -> ``multi-queue_random-relaxed``
     * Counter -> ``multi-counter_random-relaxed`` 
