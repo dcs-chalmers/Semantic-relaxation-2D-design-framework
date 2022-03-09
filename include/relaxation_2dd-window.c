@@ -9,7 +9,7 @@ descriptor_t put_window(DS_TYPE* set, uint8_t contention)
 	
 	if(contention == 1)
 	{		
-		thread_index == random_index(set);
+		thread_index = random_index(set);
 		contention = 0;
 	}
 	
