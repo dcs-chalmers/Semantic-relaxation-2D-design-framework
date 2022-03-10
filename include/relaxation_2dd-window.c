@@ -9,7 +9,7 @@ descriptor_t put_window(DS_TYPE* set, uint8_t contention)
 	
 	if(contention == 1)
 	{		
-		thread_index == random_index(set);
+		thread_index = random_index(set);
 		contention = 0;
 	}
 	
@@ -90,6 +90,13 @@ descriptor_t get_window(DS_TYPE* set, uint8_t contention)
 		//shift window
 		if(hops == set->width)
 		{
+			/* emptiness check *
+			if(notempty == 0)
+			{				
+				//if all sub structures are empty within the same window return even if substructure is empty
+				return descriptor;
+			}
+			*/
 			if(thread_GWindow.max == global_GWindow.max)
 			{
 				new_window.max = thread_GWindow.max + set->depth;
@@ -125,13 +132,6 @@ descriptor_t get_window(DS_TYPE* set, uint8_t contention)
 			else
 			{					
 				hops += 1;
-				/* emptiness check *
-				if(hops == set->width && notempty == 0)
-				{				
-					//if all sub structures are empty within the same window return even if substructure is empty
-					return descriptor;
-				}
-				*/
 				thread_index += 1;
 				if(thread_index == set->width)
 				{
