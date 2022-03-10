@@ -1,6 +1,6 @@
 .PHONY:	all
 
-BENCHS =  src/deque-maged_2Dc-win src/deque-maged_2Dd-win src/multi-counter_2dd-window src/multi-stack_2dd-window src/multi-stack_random-relaxed src/multi-queue_random-relaxed src/multi-counter-faa_random-relaxed src/multi-counter_random-relaxed  src/multi-queue_2dd-window
+BENCHS =  src/deque-maged_2Dc-win src/deque-maged_2Dd-win src/multi-counter_2dd-window src/multi-counter_2dc-window src/multi-stack_2dd-window src/multi-stack_2dc-window src/multi-stack_random-relaxed src/multi-queue_random-relaxed src/multi-counter-faa_random-relaxed src/multi-counter_random-relaxed  src/multi-queue_2dd-window
 
 .PHONY:	clean all external $(BENCHS)
 	
@@ -36,6 +36,8 @@ multi-st_ran8c:
 	$(MAKE) "CHOICES=eight" src/multi-stack_random-relaxed
 multi-st_2dd:
 	$(MAKE) src/multi-stack_2dd-window
+multi-st_2dc:
+	$(MAKE) src/multi-stack_2dc-window
 	
 multi-ct-faa_ran:
 	$(MAKE) src/multi-counter-faa_random-relaxed
@@ -49,9 +51,11 @@ multi-ct_ran8c:
 	$(MAKE) "CHOICES=eight" src/multi-counter_random-relaxed
 multi-ct_2dd:
 	$(MAKE) src/multi-counter_2dd-window
+multi-ct_2dc:
+	$(MAKE) src/multi-counter_2dc-window
 
 
-multi_2dc: deque-maged_2Dc-win
+multi_2dc: deque-maged_2Dc-win multi-st_2dc multi-ct_2dc
 multi_2dd: multi-ct_2dd multi-st_2dd multi-qu_2dd deque-maged_2Dd-win
 multi_ran: multi-ct-faa_ran multi-ct_ran multi-st_ran multi-ct_ran2c multi-st_ran2c multi-qu_ran2c multi-qu_ran multi-st_ran4c multi-ct_ran4c multi-st_ran8c multi-ct_ran8c multi-qu_ran4c multi-qu_ran8c
 
