@@ -58,7 +58,7 @@ typedef ALIGNED(CACHE_LINE_SIZE) struct mqueue_file
 	uint64_t depth;
 	uint64_t relaxation_bound;
 	uint8_t k_mode;
-	uint8_t padding[CACHE_LINE_SIZE - sizeof(uint8_t) - (2 * sizeof(index_t*)) - (sizeof(int64_t)*4)];
+	uint8_t padding[CACHE_LINE_SIZE - sizeof(uint8_t) - (2 * sizeof(index_t*)) - (sizeof(uint64_t)*4)];
 } mqueue_t;
 
 /*Global variables*/
